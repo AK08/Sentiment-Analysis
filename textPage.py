@@ -2,18 +2,9 @@ import streamlit as st
 import streamlit.components.v1 as components
 from textblob import TextBlob
 from PIL import Image
-import text2emotion as te
 import plotly.graph_objects as go
 
-def plotPie(labels, values):
-    fig = go.Figure(
-        go.Pie(
-        labels = labels,
-        values = values,
-        hoverinfo = "label+percent",
-        textinfo = "value"
-    ))
-    st.plotly_chart(fig)
+
 
     
 def getPolarity(userText):
@@ -44,9 +35,9 @@ def getSentiments(userText, type):
     
 def renderPage():
     st.title("Sentiment Analysis 😊😐😕😡")
-   
+    st.text("")   
     # st.markdown("### User Input Text Analysis")
-    st.subheader("User Input Text Analysis")
+    st.subheader("User Input Text Analysis")    
     st.text("Analyzing text data given by the user and find sentiments within it.")
     st.text("")
     userText = st.text_input('User Input', placeholder='Input text HERE')
@@ -57,6 +48,6 @@ def renderPage():
         if(userText!="" and type!=None):
             st.text("")
             st.components.v1.html("""
-                                <h3 style="color: #0284c7; font-family: Source Sans Pro, sans-serif; font-size: 28px; margin-bottom: 10px; margin-top: 50px;">Result</h3>
+                                <h3 style="color: #0284c7; font-family: Source Sans Pro, sans-serif; font-size: 30px; margin-bottom: 10px; margin-top: 50px;">Result</h3>
                                 """, height=100)
             getSentiments(userText, type)
