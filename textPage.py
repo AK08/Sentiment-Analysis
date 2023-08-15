@@ -1,9 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from textblob import TextBlob
-
-
-
+from PIL import Image
 
     
 def getPolarity(userText):
